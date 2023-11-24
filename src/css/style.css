@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+
+:root {
+    font-size: 16px;
+}
+
+@keyframes entering {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    background: rgb(18, 4, 30);
+    background: radial-gradient(circle, rgba(18, 4, 30, 1) 0%, rgba(12, 1, 23, 1) 100%);
+    background-position: center;
+    color: #eaeaea;
+
+    font-family: 'Roboto', sans-serif;
+
+    display: grid;
+    grid-template-areas: "profile timeline";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100vh;
+
+    height: 100vh;
+}
+
+nav {
+    padding: 64px;
+    grid-area: timeline;
+
+    overflow-y: scroll;
+    animation: entering 0.7s ease-in-out;
+}
+
+.memory {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    margin-bottom: 64px;
+}
+
+.memory small {
+    color: #bebebf;
+    font-size: 0.75rem;
+}
+
+.memory h1 {
+    font-size: 2rem;
+}
+
+.memory img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.memory .img-top {
+    object-position: top;
+}
+
+.memory .img-left {
+    object-position: left;
+}
+
+.imagem-console {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.memory:hover img {
+    transform: scale(1.1);
+}
+
+.memory p {
+    font-size: 1.2rem;
+    color: #bebebf;
+    line-height: 28px;
+}
+
+aside {
+    grid-area: profile;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+
+    border-right: 1px solid;
+    border-image: linear-gradient(#727275, #2c2c31)1;
+
+    background-image: url("../image/fundo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+aside * {
+    animation: entering 0.7s ease-in-out;
+}
+
+aside .perfil {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+
+    border: 4px solid transparent;
+    background: linear-gradient(rgba(19, 140, 234, 1) 0%, rgba(130, 13, 188, 1) 50%, rgba(223, 2, 95, 1)) padding-box, linear-gradient(260deg, rgba(19, 140, 234, 1) 0%, rgba(130, 13, 188, 1) 50%, rgba(223, 2, 95, 1)) border-box;
+}
+
+
+/* aside .coroa {
+    width: 200px;
+    height: 200px;
+    margin-right: -20px;
+    margin-bottom: -40px;
+    transform: rotate(14deg);
+} */
+
+aside p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+aside p strong {
+    font-size: 2rem;
+}
+
+aside span {
+    font-size: 0.85rem;
+    color: #9e9ea0;
+}
+
+@media (max-width: 768px) {
+    :root {
+        font-size: 15px;
+    }
+
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 0.8fr;
+        grid-template-areas:
+            "profile"
+            "timeline";
+    }
+
+    aside {
+        border-right: none;
+        padding: 32px 12px;
+    }
+
+    nav {
+        overflow-y: visible;
+        padding: 22px;
+    }
+
+    .memory img {
+        width: 100%;
+        height: 40rem;
+    }
+
+    .imagem-console {
+        height: 40rem;
+    }
+}
